@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+    php:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./:/var/www/html:delegated
+        env_file:
+            - .env
+        ports:
+            - "9999:80"
+        links:
+            - redis
+
+    rabbit:
+        image: "rabbitmq:3.8-rc-management-alpine"
+        environment:
+            RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+            RABBITMQ_DEFAULT_USER: "rabbitmq"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq"
+            RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "9997:15672"
+            - "9996:5672"
+
+    redis:
+        image: "redis:alpine"
+
+volumes:
+    db_data:
