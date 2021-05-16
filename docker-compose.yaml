@@ -14,17 +14,6 @@ services:
         links:
             - redis
 
-    rabbit:
-        image: "rabbitmq:3.8-rc-management-alpine"
-        environment:
-            RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-            RABBITMQ_DEFAULT_USER: "rabbitmq"
-            RABBITMQ_DEFAULT_PASS: "rabbitmq"
-            RABBITMQ_DEFAULT_VHOST: "/"
-        ports:
-            - "9997:15672"
-            - "9996:5672"
-
     redis:
         image: "redis:alpine"
 

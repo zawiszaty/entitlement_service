@@ -10,3 +10,7 @@ php:
 .Phony: stop
 stop:
 	docker-compose stop
+
+.Phony: test
+test:
+	docker-compose exec -T php ./vendor/bin/phpunit
