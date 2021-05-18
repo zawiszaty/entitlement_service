@@ -24,6 +24,9 @@ class ResourceCreator
         $this->entitlements = $entitlements;
     }
 
+    /**
+     * @param GenericList<UuidInterface> $entitlementsIds
+     */
     public function create(string $name, string $category, GenericList $entitlementsIds): void
     {
         $entitlementsCollection = GenericList::empty();
@@ -34,6 +37,8 @@ class ResourceCreator
                 throw MissingEntitlement::create($id);
             }
             $entitlementsCollection = $entitlementsCollection->append($entitlement->get());
+
+            return true;
         });
         $resource = new Resource(Uuid::uuid4(), $name, $category, $entitlementsCollection);
         $this->resources->save($resource);

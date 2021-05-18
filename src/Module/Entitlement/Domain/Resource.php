@@ -18,6 +18,9 @@ final class Resource
     /** @var GenericList<Entitlement> */
     private GenericList $entitlements;
 
+    /**
+     * @param GenericList<Entitlement>|null $entitlements
+     */
     public function __construct(UuidInterface $id, string $name, string $category, GenericList $entitlements = null)
     {
         $this->id = $id;
@@ -25,7 +28,6 @@ final class Resource
         $this->category = $category;
         $this->entitlements = $entitlements ?: GenericList::empty();
     }
-
 
     public function addEntitlement(Entitlement $entitlement): void
     {
@@ -48,6 +50,9 @@ final class Resource
         return $this->id;
     }
 
+    /**
+     * @return GenericList<Entitlement>
+     */
     public function getEntitlements(): GenericList
     {
         return $this->entitlements;

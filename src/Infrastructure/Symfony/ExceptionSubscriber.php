@@ -31,6 +31,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
         return $this->determineStatusCode($exception);
     }
 
+    /**
+     * @return array[]
+     */
     private function getErrorMessage(\Throwable $exception, Response $response): array
     {
         $error = [
@@ -83,6 +86,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
         return $statusCode;
     }
 
+    /**
+     * @return string[]
+     */
     public static function getSubscribedEvents(): array
     {
         return [

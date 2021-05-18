@@ -12,7 +12,7 @@ use Ramsey\Uuid\UuidInterface;
 
 class InMemoryViewersRepository implements Viewers
 {
-    /** @var Map<Viewer> */
+    /** @var Map<string, Viewer> */
     private Map $viewers;
 
     public function __construct()
@@ -25,6 +25,9 @@ class InMemoryViewersRepository implements Viewers
         $this->viewers = $this->viewers->put($viewer->getId()->toString(), $viewer);
     }
 
+    /**
+     * @return Option<Viewer>
+     */
     public function findOneById(UuidInterface $viewerId): Option
     {
         return $this->viewers->get($viewerId->toString());

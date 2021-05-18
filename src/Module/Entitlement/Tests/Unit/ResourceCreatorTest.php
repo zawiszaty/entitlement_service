@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Entitlement\Tests\Unit;
-
 
 use App\Module\Entitlement\Application\UseCase\ResourceCreator;
 use App\Module\Entitlement\Domain\Entitlement;
@@ -44,7 +42,7 @@ class ResourceCreatorTest extends TestCase
         $entitlementsIds = GenericList::of($entitlement->getId());
         $this->creator->create('test', 'test', $entitlementsIds);
 
-        /** @var Resource $resource */
+        /** @var resource $resource */
         $resource = $this->repository->getAll()->getIterator()->current();
         self::assertInstanceOf(Resource::class, $resource);
         self::assertCount(1, $resource->getEntitlements());

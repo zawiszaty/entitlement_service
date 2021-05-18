@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Entitlement\Tests\Unit;
-
 
 use App\Module\Entitlement\Application\UseCase\ViewerCreator;
 use App\Module\Entitlement\Infrastructure\Repository\InMemoryViewersRepository;

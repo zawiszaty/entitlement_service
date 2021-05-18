@@ -33,6 +33,7 @@ class ViewerAccessToResourceChecker
         if ($resource->isEmpty()) {
             throw MissingResource::create($resourceId);
         }
+
         return $viewer->get()->canAccessResource($resource->get());
     }
 }

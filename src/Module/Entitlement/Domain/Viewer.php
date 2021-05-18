@@ -14,6 +14,9 @@ final class Viewer
     /** @var GenericList<Entitlement> */
     private GenericList $entitlements;
 
+    /**
+     * @param GenericList<Entitlement>|null $entitlements
+     */
     public function __construct(UuidInterface $id, GenericList $entitlements = null)
     {
         $this->id = $id;
@@ -48,6 +51,9 @@ final class Viewer
         });
     }
 
+    /**
+     * @return GenericList<Entitlement>
+     */
     public function getEntitlements(): GenericList
     {
         return $this->entitlements;

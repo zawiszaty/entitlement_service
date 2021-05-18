@@ -23,7 +23,13 @@ final class Entitlement
     /** @var GenericList<Entitlement> */
     private GenericList $childrenEntitlements;
 
-
+    /**
+     * Entitlement constructor.
+     *
+     * @param GenericList<Resource>|null    $resources
+     * @param GenericList<Viewer>|null      $viewers
+     * @param GenericList<Entitlement>|null $childrenEntitlements
+     */
     public function __construct(UuidInterface $id, DateTime $expiresAt = null, GenericList $resources = null, GenericList $viewers = null, GenericList $childrenEntitlements = null)
     {
         $this->id = $id;
@@ -113,6 +119,9 @@ final class Entitlement
         return $this->id;
     }
 
+    /**
+     * @return GenericList<Resource>
+     */
     public function getResources(): GenericList
     {
         return $this->resources;

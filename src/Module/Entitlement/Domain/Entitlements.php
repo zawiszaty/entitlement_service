@@ -11,5 +11,8 @@ interface Entitlements
 {
     public function save(Entitlement $entitlement): void;
 
+    /**
+     * @return Option<Entitlement>
+     */
     public function findOneById(UuidInterface $entitlementId): Option;
 }

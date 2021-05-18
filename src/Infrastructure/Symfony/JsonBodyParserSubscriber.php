@@ -56,6 +56,9 @@ final class JsonBodyParserSubscriber implements EventSubscriberInterface
         return true;
     }
 
+    /**
+     * @return string[]
+     */
     public static function getSubscribedEvents(): array
     {
         return [
