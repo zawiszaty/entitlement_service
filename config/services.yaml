@@ -30,3 +30,15 @@ services:
     Predis\Client:
         arguments:
             - 'tcp://redis:6379'
+
+    App\Module\Entitlement\Infrastructure\Repository\InMemoryEntitlementsRepository:
+        public: true
+        shared: true
+
+    App\Module\Entitlement\Infrastructure\Repository\InMemoryResourcesRepository:
+        shared: true
+        public: true
+
+    App\Module\Entitlement\Infrastructure\Repository\InMemoryViewersRepository:
+        shared: true
+        public: true

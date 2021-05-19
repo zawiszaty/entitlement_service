@@ -1,7 +1,12 @@
 controllers:
-    resource: ../../src/Controller/
+    resource: ../../src/Infrastructure/Symfony/
     type: annotation
 
 kernel:
-    resource: ../../src/Kernel.php
+    resource: ../../src/Infrastructure/Symfony/Kernel.php
+    type: annotation
+
+entitlement_rest:
+    resource: ../../src/Module/Entitlement/UI/HTTP/REST/Controller
+    prefix: api/v1
     type: annotation

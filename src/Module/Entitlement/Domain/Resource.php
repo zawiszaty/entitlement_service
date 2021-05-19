@@ -57,4 +57,14 @@ final class Resource
     {
         return $this->entitlements;
     }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getCategory(): string
+    {
+        return $this->category;
+    }
 }
